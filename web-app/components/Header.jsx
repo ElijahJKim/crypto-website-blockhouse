@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { HiMenuAlt3 } from "react-icons/hi";
 
 const Header = () => {
   return (
@@ -11,9 +12,10 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <h1>BlockHouse Crypto</h1>
+          <h1>BHC</h1>
         </li>
       </ul>
+      <HiMenuAlt3 />
     </nav>
   );
 };

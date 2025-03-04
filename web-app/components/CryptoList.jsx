@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { Loading } from "./Loading";
-
 import { useFetchCoin } from "../utils/useFetchCoin";
 import { SearchBar } from "./SearchBar";
+import { IoMdRefreshCircle } from "react-icons/io";
 
 export const CryptoList = () => {
   const { data: coins, isLoading, error, refetch } = useFetchCoin();
@@ -32,7 +32,9 @@ export const CryptoList = () => {
     );
   }
 
-  const filterCoin = coins.filter((coin, index) => coin !== search);
+  const filterCoin = coins.filter((coin, index) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   // TODO: BLOCK BUTTON 5S AFTER CLICKED
   const handleRefresh = () => {
@@ -43,7 +45,10 @@ export const CryptoList = () => {
     <div className="cryptolist">
       <div className="cryptolist__container">
         <SearchBar setSearch={setSearch} />
-        <button onClick={() => handleRefresh()}>Refresh</button>
+        <IoMdRefreshCircle
+          onClick={() => handleRefresh()}
+          className="refresh-icon"
+        />
         <table>
           <thead>
             <tr>
@@ -53,7 +58,7 @@ export const CryptoList = () => {
             </tr>
           </thead>
           <tbody>
-            {coins.map((coin, index) => {
+            {filterCoin.map((coin, index) => {
               //convert to dollar
               const price = parseFloat(coin.priceUsd);
               const formattedPrice = price.toLocaleString("en-US", {

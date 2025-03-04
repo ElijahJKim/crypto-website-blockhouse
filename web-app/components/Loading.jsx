@@ -1,7 +1,19 @@
 import React from "react";
-import Lottie from 'react-lottie';
-import animationData from ""
+
+import dynamic from "next/dynamic";
+import animationData from "../public/dog.json";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 export const Loading = () => {
-  return <div>Loading</div>;
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+  };
+  return (
+    <div>
+      <Lottie options={defaultOptions} />
+    </div>
+  );
 };
