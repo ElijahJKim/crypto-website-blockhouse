@@ -1,0 +1,125 @@
+@import "./responsive.scss";
+
+// HEADER
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      h1 {
+        font-weight: 800;
+        margin-left: 10px;
+      }
+      .tablet {
+        display: none;
+      }
+    }
+  }
+}
+
+// SEARCHBAR
+.search-bar {
+  position: relative;
+  width: 200px;
+
+  .icon {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+  }
+  input {
+    border: none;
+    outline: none;
+    background-color: #f9f9f8;
+    padding: 0.7rem 2rem;
+    width: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+}
+
+// CRYPTOLIST
+.cryptolist {
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    width: 100%;
+    border: 2px solid black;
+    padding: 1rem;
+    &__top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .refresh-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      thead {
+        background-color: #f9f9f8;
+        border-radius: 20px;
+
+        tr {
+          th {
+            text-align: left;
+            padding: 1rem;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include dvTablet {
+  nav {
+    ul {
+      li {
+        .tablet {
+          display: block;
+        }
+        .mobile {
+          display: none;
+        }
+      }
+    }
+  }
+  .cryptolist {
+    &__container {
+      max-width: 500px;
+      &__top {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@include dvLaptop {
+  .cryptolist {
+    &__container {
+      max-width: 800px;
+    }
+  }
+}

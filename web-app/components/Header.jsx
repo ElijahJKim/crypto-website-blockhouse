@@ -12,7 +12,10 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <h1>BHC</h1>
+          <h1 className="mobile">BHC</h1>
+        </li>
+        <li>
+          <h1 className="tablet">Block House Crypto</h1>
         </li>
       </ul>
       <HiMenuAlt3 />

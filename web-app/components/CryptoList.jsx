@@ -36,7 +36,6 @@ export const CryptoList = () => {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // TODO: BLOCK BUTTON 5S AFTER CLICKED
   const handleRefresh = () => {
     refetch();
   };
@@ -44,11 +43,13 @@ export const CryptoList = () => {
   return (
     <div className="cryptolist">
       <div className="cryptolist__container">
-        <SearchBar setSearch={setSearch} />
-        <IoMdRefreshCircle
-          onClick={() => handleRefresh()}
-          className="refresh-icon"
-        />
+        <div className="cryptolist__container__top">
+          <SearchBar setSearch={setSearch} />
+          <IoMdRefreshCircle
+            onClick={() => handleRefresh()}
+            className="refresh-icon"
+          />
+        </div>
         <table>
           <thead>
             <tr>
