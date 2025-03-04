@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev:next": "cd web-app && npm run dev",
+    "dev:docusaurus": "cd docs && npm run start -- --port 3001",
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:docusaurus\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -13,7 +13,7 @@ export const Loading = () => {
   };
   return (
     <div>
-      <Lottie options={defaultOptions} />
+      <Lottie options={defaultOptions} width={300} height={300} />
     </div>
   );
 };
